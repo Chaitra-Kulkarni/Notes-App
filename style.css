@@ -149,6 +149,12 @@ body{
 .popup-box, .popup-box .popup{
     opacity: 0; 
     pointer-events: none;
+    transition: all 0.25 ease;
+}
+
+.popup-box.show, .popup-box .popup{
+    opacity: 1; 
+    pointer-events: auto;
 }
 
 .popup .content{
