@@ -5,6 +5,11 @@ const addButton = popupBox.querySelector("button");
 const titleTag = popupBox.querySelector("input");
 const descTag = popupBox.querySelector("textarea");
 
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+//Getting local storage notes if exist and parsing them to JS object else passing an empty array to notes
+const notes = JSON.parse(localStorage.getItem("notes") || "[]")
+
 // Show & Hide Popup Form
 addBox.addEventListener("click", () => {
     popupBox.classList.add("show")
@@ -12,10 +17,33 @@ addBox.addEventListener("click", () => {
 
 closeIcon.addEventListener("click", () => {
     popupBox.classList.remove("show");
-})
+});
 
-// Add Note button
+
+
+// Working of Add Note button and Saving Notes to local storage
 addButton.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log("button clicked");
+    let noteTitle = titleTag.value;
+    let noteDescription = descTag.value;
+
+    if(noteTitle || noteDescription){
+        // Getting month, year, day from the current date
+        let dateObj = new Date(),
+        month = months[dateObj.getMonth()],
+        year = dateObj.getFullYear(),
+        day = dateObj.getDate();
+
+        // Creating an object of title, desc and date
+        let noteInformation = {
+            title: noteTitle,
+            description: noteDescription,
+            date: `${month} ${day}, ${year}`
+        }
+
+        // Adding new note to notes and saving it to local storage
+        notes.push(noteInformation);
+        localStorage.setItem('notes', JSON.stringify(notes));
+        closeIcon.click();
+    }
 })
