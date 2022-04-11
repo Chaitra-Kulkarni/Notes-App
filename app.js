@@ -20,6 +20,25 @@ closeIcon.addEventListener("click", () => {
 });
 
 
+// Show notes from local storage
+function showNotes() {
+    // Removing all previous notes before adding new
+    document.querySelectorAll(".note").forEach(note => note.remove());
+    notes.forEach((note) => {
+        let liTag = `<li class="note">
+                        <div class="details">
+                            <p>${note.title}</p>
+                            <span>${note.description}</span>
+                        </div>
+                        <div class="bottom-content">
+                            <span>${note.date}</span>
+                        </div>
+                    </li>`;
+    addBox.insertAdjacentHTML("afterend", liTag);
+    });
+}
+
+showNotes();
 
 // Working of Add Note button and Saving Notes to local storage
 addButton.addEventListener("click", (e) => {
@@ -35,7 +54,7 @@ addButton.addEventListener("click", (e) => {
         day = dateObj.getDate();
 
         // Creating an object of title, desc and date
-        let noteInformation = {
+        const noteInformation = {
             title: noteTitle,
             description: noteDescription,
             date: `${month} ${day}, ${year}`
@@ -45,5 +64,6 @@ addButton.addEventListener("click", (e) => {
         notes.push(noteInformation);
         localStorage.setItem('notes', JSON.stringify(notes));
         closeIcon.click();
+        showNotes();
     }
 })
