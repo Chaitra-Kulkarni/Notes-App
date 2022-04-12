@@ -8,7 +8,7 @@
 }
 
 body{
-    background-color: #8ca7cf;
+    background-color: #b3d9eb;
 }
 
 .wrapper{
@@ -20,7 +20,7 @@ body{
 
 .wrapper li{
     height: 250px;
-    background-color: #f0f8f0;
+    background-color: #f5f5f5;
     list-style: none;
     border-radius: 5px;
     padding: 15px 20px 20px;
