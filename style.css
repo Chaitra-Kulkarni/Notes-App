@@ -8,7 +8,8 @@
 }
 
 body{
-    background-color: #b3d9eb;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,0.9500175070028011) 0%, rgba(0,212,255,1) 100%);
 }
 
 .wrapper{
@@ -20,7 +21,7 @@ body{
 
 .wrapper li{
     height: 250px;
-    background-color: #f5f5f5;
+    background-color: #ffffef;
     list-style: none;
     border-radius: 5px;
     padding: 15px 20px 20px;
@@ -41,15 +42,15 @@ body{
 .add-box .icon{
     height: 78px;
     width: 78px;
-    color: #88ABFF;
+    color: #4169e1;
     font-size: 40px;
     justify-content: center;
-    border: 2px dashed #88ABFF;
+    border: 2px dashed #4169e1;
     border-radius: 50%;
 }
 
 .add-box p{
-    color: #88ABFF;
+    color: #4169e1;
     font-weight: 500;
     margin-top: 20px;
 }
